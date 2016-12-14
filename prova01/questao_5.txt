@@ -1,0 +1,12 @@
+[master 6b7ff67] questão 1
+ Committer: icomp <icomp@icomp-pc>
+
+[master 90a1da1] questão 2
+ Committer: icomp <icomp@icomp-pc>
+
+ [master d637410] questão 4
+ Committer: icomp <icomp@icomp-pc>
+
+a) O Working directory é o diretório em que está fazendo as alterações
+   O index são os registros das mudanças feitas
+   O repository é o projeto em si.

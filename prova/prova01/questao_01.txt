@@ -1,6 +1,0 @@
-1 -> Faltam as tags <html> e </html>, que devem ser colocadas respectivamente
-	depois do <!DOCTYPE html> e após a tag </body>;
-2 -> O comentário em HTML5 não começa e termina com /* */, para fazer um
-	comentário corretamente deve utilizar <!-- -->;
-3 -> Em vez de <h1></h1> usar <title></title>;
-4 -> Não foi definido as dimensões de width e heigh, por exemplo 260px ou 111px.

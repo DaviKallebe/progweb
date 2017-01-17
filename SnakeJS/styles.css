@@ -1,0 +1,57 @@
+.middle-box {
+    position            : absolute;
+    margin              : auto;
+    top                 : 0;
+    right               : 0;
+    bottom              : 0;
+    left                : 0;
+    border-radius       : 3px;
+}
+
+.option-box {
+    border              : 2px black solid;
+    width               : 350px;
+    height              : 450px;
+}
+
+.snake-box {
+    width               : 800px;
+    height              : 600px;
+    border              : 2px black solid;
+    background-color    : #ccc;
+    opacity             : 0.5;
+}
+
+.snake-field {
+    table-layout        : fixed;
+    width               : 800px;
+    height              : 600px;
+    border-collapse     : collapse;
+}
+
+.snake-field tr, .snake-field td {
+    width               : 10px;
+    height              : 10px;
+    padding             : 0;
+    text-align          : center;
+}
+
+.snake-body {
+    background-color   : black;
+}
+
+.snake-food {
+    background-color   : black;
+}
+
+.middle-button {
+    display : block;
+    width   : 100px;
+    height  : 50px;
+    bottom  : 0;
+    margin  : 0 auto;
+}
+
+body {
+    background-image: url(recursos/snake-minimalist.jpg);
+}

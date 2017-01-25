@@ -138,7 +138,10 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        $data = strftime( '%Y-%m-%d %H:%M:%S', strtotime('today') );
+        return $this->render('about', [
+            'data' => $data,
+        ]);
     }
 
     /**

@@ -4,3 +4,6 @@
 	comentário corretamente deve utilizar <!-- -->;
 3 -> Em vez de <h1></h1> usar <title></title>;
 4 -> Não foi definido as dimensões de width e heigh, por exemplo 260px ou 111px.
+
+Nota: 1.5
+O erro 4 não existe. Os demais erros foram reportados corretamente.

@@ -10,3 +10,6 @@
 a) O Working directory é o diretório em que está fazendo as alterações
    O index são os registros das mudanças feitas
    O repository é o projeto em si.
+
+Nota: 1.6
+Logs reportados corretamente, mas os conceitos apresentam algumas imprecisões.

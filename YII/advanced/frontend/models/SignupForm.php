@@ -11,6 +11,7 @@ class SignupForm extends Model
 {
     public $username;
     public $email;
+    public $id_curso;
     public $password;
 
 
@@ -24,6 +25,8 @@ class SignupForm extends Model
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
+
+            ['id_curso', 'required'],
 
             ['email', 'trim'],
             ['email', 'required'],
@@ -46,13 +49,14 @@ class SignupForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        
+
         $user = new User();
         $user->username = $this->username;
+        $user->id_curso = $this->id_curso;
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
-        
+
         return $user->save() ? $user : null;
     }
 }

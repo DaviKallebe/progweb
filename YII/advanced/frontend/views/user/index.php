@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Users';
+$this->title = 'Usuários';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
@@ -27,10 +27,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'id_curso',
             'username',
-            'auth_key',
-            'password_hash',
+            'email:email',
+            // 'auth_key',
+            // 'password_hash',
             // 'password_reset_token',
-            // 'email:email',
             // 'status',
             // 'created_at',
             // 'updated_at',

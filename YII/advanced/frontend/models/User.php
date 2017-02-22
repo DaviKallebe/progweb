@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\Curso;
 
 /**
  * This is the model class for table "user".
@@ -54,8 +55,8 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_curso' => 'ID Curso',
-            'username' => 'Username',
+            'id_curso' => 'Curso',
+            'username' => 'Usuário',
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
@@ -69,6 +70,7 @@ class User extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+
     public function getIdCurso()
     {
         return $this->hasOne(Curso::className(), ['id' => 'id_curso']);

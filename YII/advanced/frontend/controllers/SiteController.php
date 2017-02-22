@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use Yii;
+use app\models\Curso;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -12,6 +13,8 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\helpers\ArrayHelper;
+
 
 /**
  * Site controller
@@ -159,8 +162,12 @@ class SiteController extends Controller
             }
         }
 
+        $arraycursos = Curso::find()->all();
+        $listData = ArrayHelper::map($arraycursos,'id','nome');
+
         return $this->render('signup', [
             'model' => $model,
+            'arraycursos' => $listData,
         ]);
     }
 

@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Snake - Instituto de Computação (ICOMP)';
 ?>
 <div class="site-index">
 

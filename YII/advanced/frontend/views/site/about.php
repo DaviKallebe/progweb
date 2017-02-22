@@ -10,7 +10,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Esta aplicação é um jogo, Snake, feito na disciplina Programação Web utilizando as tecnologias como JavaScript, PHP, Yii Framework e HTML 5.</p>
+    <p>Esta aplicação é um snake feito com javascript, php e o framework YII 2.</p>
 
-    <br>Data e hora atual: <code><?= $data ?></code>
+    <p>Dia e hora atual é <?= $date ?></p>
+    <code><?= __FILE__ ?></code>
 </div>

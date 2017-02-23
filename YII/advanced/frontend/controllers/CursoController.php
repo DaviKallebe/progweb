@@ -3,11 +3,13 @@
 namespace frontend\controllers;
 
 use Yii;
+use app\models\User;
 use app\models\Curso;
 use app\models\CursoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\data\ActiveDataProvider;
 
 /**
  * CursoController implements the CRUD actions for Curso model.
@@ -105,6 +107,33 @@ class CursoController extends Controller
 
         return $this->redirect(['index']);
     }
+
+    /**
+     * Show all users in Curso.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionUsers($id)
+    {
+        $query = User::find();
+        $query->where(['id_curso' => $id]);
+        $query->all();
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
+
+        $curso = Curso::findOne($id);
+
+        return $this->render('users', [
+            'dataProvider' => $dataProvider,
+            'curso' => $curso,
+        ]);
+    }
+
 
     /**
      * Finds the Curso model based on its primary key value.

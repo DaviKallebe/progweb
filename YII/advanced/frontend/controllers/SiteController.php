@@ -14,6 +14,8 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\helpers\ArrayHelper;
+use app\models\Jogada;
+use yii\data\ActiveDataProvider;
 
 
 /**
@@ -191,6 +193,28 @@ class SiteController extends Controller
 
         return $this->render('requestPasswordResetToken', [
             'model' => $model,
+        ]);
+    }
+
+    /**
+     * Show best scores.
+     * @return mixed
+     */
+    public function actionLeaderboard()
+    {
+        $query = Jogada::find();
+        $query->orderBy(['pontuacao'=>SORT_DESC]);
+        $query->all();
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
+
+        return $this->render('leaderboard', [
+            'dataProvider' => $dataProvider,
         ]);
     }
 

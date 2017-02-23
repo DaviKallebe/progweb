@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\Curso;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\UserSearch */
@@ -16,16 +17,20 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
+        <br>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'id_curso',
+            [
+                'attribute' => 'id_curso',
+                'value' => function($model, $index, $column) {
+                   $curso = Curso::findOne($model->id_curso);
+                   return $curso->nome;
+                },
+            ],
             'username',
             'email:email',
             // 'auth_key',

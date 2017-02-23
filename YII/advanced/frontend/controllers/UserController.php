@@ -5,9 +5,11 @@ namespace frontend\controllers;
 use Yii;
 use app\models\User;
 use app\models\UserSearch;
+use app\models\Jogada;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\data\ActiveDataProvider;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -104,6 +106,48 @@ class UserController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    /**
+     * Store a play point.
+     * @param integer $id
+     * @param integer $pontuacao
+     */
+    public function actionStorepoint($id, $pontuacao)
+    {
+        $model = new Jogada();
+        $model->id_user = $id;
+        $model->pontuacao = $pontuacao;
+        $model->data_hota = date("Y-m-d H:i:s");
+
+        $model->save();
+    }
+
+    /**
+     * Show all jogada of a user.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionJogadas($id)
+    {
+        $query = Jogada::find();
+        $query->where(['id_user' => $id]);
+        $query->orderBy(['pontuacao'=>SORT_DESC]);
+        $query->all();
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
+
+        $user = User::findOne($id);
+
+        return $this->render('jogadas', [
+            'dataProvider' => $dataProvider,
+            'user' => $user,
+        ]);
     }
 
     /**

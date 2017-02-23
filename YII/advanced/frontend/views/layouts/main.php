@@ -38,6 +38,7 @@ AppAsset::register($this);
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'Usuários', 'url' => ['/user/index']],
         ['label' => 'Cursos', 'url' => ['/curso/index']],
+        ['label' => 'Leaderboard', 'url' => ['/site/leaderboard']],
         ['label' => 'Sobre', 'url' => ['/site/about']],
         ['label' => 'Contato', 'url' => ['/site/contact']],
     ];

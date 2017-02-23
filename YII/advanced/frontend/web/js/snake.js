@@ -49,8 +49,46 @@ function snake(tabela, y, x, fy, fx, my, mx, pontos){
     }
 }
 
-function IniciarJogo(){
+function post(url, parametros) {
+    var http = new XMLHttpRequest();
+    var link = location.protocol + '//' + location.host + location.pathname;
+    var params = Object.keys(parametros).map(function(k) {
+                        return encodeURIComponent(k) + '=' + encodeURIComponent(parametros[k])
+                    }).join('&')
 
+    http.open("POST", link + url, true);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    http.onreadystatechange = function() {
+        if(http.readyState == 4 && http.status == 200) {
+            alert(http.responseText);
+        }
+    }
+
+    console.log(params);
+
+    http.send(params);
+}
+
+function get(url, parametros) {
+    var http = new XMLHttpRequest();
+    var link = location.protocol + '//' + location.host + location.pathname;
+    var params = Object.keys(parametros).map(function(k) {
+                        return encodeURIComponent(k) + '=' + encodeURIComponent(parametros[k])
+                    }).join('&')
+
+    http.open("GET", link + url + '&' + params, true);
+
+    http.onreadystatechange = function() {
+        if(http.readyState == 4 && http.status == 200) {
+            //
+        }
+    }
+
+    http.send();
+}
+
+function IniciarJogo(id){
     //tela de novo jogo
     //document.body.innerHTML = '';
     let site_root = document.getElementsByClassName("site-index")[0];
@@ -170,6 +208,12 @@ function IniciarJogo(){
             gamediv.appendChild(pontodiv);
 
             site_root.appendChild(gamediv);
+
+            if (id != null){
+                get('?r=user/storepoint', {
+                    'id': id,
+                    'pontuacao': document.getElementById("pontos").innerHTML});
+            }
 
         }
     }, 2000/FPS);

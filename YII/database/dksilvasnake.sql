@@ -28,7 +28,7 @@ CREATE TABLE `curso` (
   `sigla` varchar(4) NOT NULL,
   `descricao` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +37,7 @@ CREATE TABLE `curso` (
 
 LOCK TABLES `curso` WRITE;
 /*!40000 ALTER TABLE `curso` DISABLE KEYS */;
+INSERT INTO `curso` VALUES (1,'Ciência da Computação','ICC','Curso de ciência da computação da UFAM'),(2,'Sistema de Informação','SI','Sistema de Informação da UFAM');
 /*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +56,7 @@ CREATE TABLE `jogada` (
   PRIMARY KEY (`id`),
   KEY `fk_foreign_key_jogada_user` (`id_user`),
   CONSTRAINT `fk_foreign_key_jogada_user` FOREIGN KEY (`id_user`) REFERENCES `curso` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,6 +65,7 @@ CREATE TABLE `jogada` (
 
 LOCK TABLES `jogada` WRITE;
 /*!40000 ALTER TABLE `jogada` DISABLE KEYS */;
+INSERT INTO `jogada` VALUES (1,1,99,'2017-02-23 00:54:29'),(2,1,7,'2017-02-23 00:54:53'),(3,1,1,'2017-02-23 00:57:17'),(4,1,5,'2017-02-23 01:37:43'),(5,2,0,'2017-02-23 01:39:02'),(6,2,16,'2017-02-23 01:39:48');
 /*!40000 ALTER TABLE `jogada` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +118,7 @@ CREATE TABLE `user` (
   KEY `id` (`id`),
   KEY `fk_foreign_key_user_curso` (`id_curso`),
   CONSTRAINT `fk_foreign_key_user_curso` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,6 +127,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,1,'dkmds','Y7rJF1UshOmIjngn3wWvHzyK-uoqZpbn','$2y$13$50U4IYeBZ3ij2FLdB8SfSOgCC6CekJECwKl5HT1bLSfSaBpfxKB7O',NULL,'dkmds@icomp.ufam.edu.br',10,1487776636,1487776636),(2,2,'Elias','-3iIOqoCxM4zwxkNRPZdTjh8Cj7VzPZe','$2y$13$7RWnbZqbXuZ.sYa2WOEDuOCLz1DhhsW1IgX3ewY535T.n8aFhxw0G',NULL,'elias@elias.com.br',10,1487813933,1487813933);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -137,4 +140,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-22  0:11:13
+-- Dump completed on 2017-02-22 21:45:49
